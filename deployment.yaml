@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-base-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: node-base-deployment
+  template:
+    metadata:
+      labels:
+        app: node-base-deployment
+    spec:
+      containers:
+      - name: node-base-deployment
+        image: basic-express
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        ports:
+          - name: web
+            containerPort: 80

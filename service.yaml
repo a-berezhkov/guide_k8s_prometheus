@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: node-base-deployment
+  labels:
+    app: node-base-deployment #--> this is used for scraping the service via the serviceMonitor
+spec:
+  selector:
+    app: node-base-deployment
+  ports:
+  - name: web
+    port: 80
